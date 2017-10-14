@@ -67,21 +67,4 @@ end
 
 end 
 	
-always @(posedge clk)begin
-	if($initstate)begin
-/*		
-		assert(!(full && emp));
-		assert(!(rd && wr));
-
-		if(status == 0)
-			assert(emp == 1 && full == 0);
-
-		if(status == 6'b100000)
-			assert(full == 1 && emp == 0);
-*/
-		if(rst)
-			assert(rd_ptr == 0);
-		
-	end
-end
 endmodule
