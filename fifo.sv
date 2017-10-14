@@ -5,6 +5,8 @@ wire [addresswidth:0]status;
 assign status = wr_ptr - rd_ptr; /* checks for FIFO full and 
                                     empty */
 
+assume property (!(wr == 1 && rd == 1));	
+	
 always_ff @(posedge clk, posedge rst)
 begin
 
@@ -63,13 +65,11 @@ begin
    full = 1;
 end
 
-end
-
-`ifdef FORMAL
-assume property (!(wr == 1 && rd == 1));
+end 
+	
 always @(posedge clk)begin
 	if($initstate)begin
-		
+/*		
 		assert(!(full && emp));
 		assert(!(rd && wr));
 
@@ -78,10 +78,10 @@ always @(posedge clk)begin
 
 		if(status == 6'b100000)
 			assert(full == 1 && emp == 0);
+*/
+		if(rst)
+			assert(rd_ptr == 0);
 		
 	end
 end
-
-assert property (rst == 1 && rd_ptr == 6'b000000);
-`endif
 endmodule
