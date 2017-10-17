@@ -56,14 +56,14 @@ emp = 0;
 full = 0;
 
 if(status == 0) // check for FIFO empty
-begin
-   emp = 1;
-end
+	begin
+   	emp = 1;
+	end
 else 
-begin
-   if(status == 1<<addresswidth)  // check for FIFO full
-   full = 1;
-end
+	begin
+  	if(status == 1<<addresswidth)  // check for FIFO full
+   	full = 1;
+	end
 
 end 
 	
