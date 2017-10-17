@@ -1,6 +1,6 @@
 // ##############################################################################
 /*
-fifo.sv - Module includes design of fifo and formal verification code to verify it with Yosys-SMTBMC
+fifo_controller.sv - Module includes design of fifo and formal verification code to verify it with Yosys-SMTBMC
 
 Created By: Aditya Pawar
 
@@ -39,7 +39,7 @@ similar logic exists for the write operation. The crux of this design is in dete
 lead to the assertion/deassertion of the emp and full signals.
 
 */
-module fifo_contrller #(parameter addresswidth=5)(input logic rd, wr, rst, clk, output logic wr_en, rd_en, emp, full, output reg [addresswidth:0]rd_ptr, wr_ptr);
+module fifo_controller #(parameter addresswidth=5)(input logic rd, wr, rst, clk, output logic wr_en, rd_en, emp, full, output reg [addresswidth:0]rd_ptr, wr_ptr);
 wire [addresswidth:0]status;
 
 assign status = wr_ptr - rd_ptr; /* checks for FIFO full and 
