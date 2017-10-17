@@ -1,5 +1,5 @@
 //`timescale 1ns / 1ps
-module fifo #(parameter addresswidth=5)(input logic rd, wr, rst, clk, output logic wr_en, rd_en, emp, full, output reg [addresswidth:0]rd_ptr, wr_ptr);
+module fifo_controller #(parameter addresswidth=5)(input logic rd, wr, rst, clk, output logic wr_en, rd_en, emp, full, output reg [addresswidth:0]rd_ptr, wr_ptr);
 wire [addresswidth:0]status;
 
 assign status = wr_ptr - rd_ptr; /* checks for FIFO full and 
