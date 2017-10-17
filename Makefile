@@ -6,7 +6,7 @@ fifo: fifo.smt2
 
 fifo.smt2: fifo.sv  
 	yosys -ql fifo.yslog \
-		-p 'read_verilog -sv -formal fifo.sv' \
+		-p 'read_verilog -sv -formal fifo_controller_formal_verified.sv' \
 		-p 'prep -top fifo_controller -nordff' \
 		-p 'techmap -autoproc -map cells_sim.v' \
 		-p 'techmap -map adff2dff.v' \
