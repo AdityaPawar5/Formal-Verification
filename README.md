@@ -4,7 +4,7 @@ fifo_controller_formal_verified.sv: contains the design and formal verification 
 
 Makefile to verify the fifo using Yosys-smtbmc
 
-Required files: fifo.sv
+Required files: fifo_controller_formal_verified.sv
 	            	adff2dff.v
 		            cells_sim.v
 
